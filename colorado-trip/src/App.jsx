@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect } from "react";
-
+ 
 const DEFAULT_TRIP_DOC = `# Colorado 2026 – The Final Plan
-
+ 
 June 30 – July 8 | Dunes · Rafting · Maroon Bells · Rocky Mountain | All reservations confirmed ✔
-
+ 
 ## Reservation & Confirmation Summary
-
+ 
 | What | Date | Confirmation | Notes |
 | The Parking Spot Fly | 6/30/2026 4:30 AM | 126714721 | Total Paid $96.80 |
 | Flight DL2235: ATL → DEN | June 30, 7:25 – 8:35 AM | Delta | Direct, 3h 10m |
@@ -20,9 +20,9 @@ June 30 – July 8 | Dunes · Rafting · Maroon Bells · Rocky Mountain | All re
 | Lone Pine Cabins, Grand Lake | July 6 – July 7 (1 night) | See booking confirmation | Check-in from 4:00 PM, Queen + 2 sofas |
 | Comfort Suites DEN | July 7 – July 8 (1 night) | Booking: 5042762440 PIN:4852 | $136.68 at the hotel. 3:00 AM shuttle arranged |
 | Flight DL0341: DEN → ATL | July 8, 5:45 – 10:44 AM | Delta | Direct, 2h 59m |
-
+ 
 ## Master Schedule
-
+ 
 Day 1 – Tuesday, June 30 | Lodging: The Dunes Place, Mosca
 Location: Mosca, CO 81146 (San Luis Valley)
 4:30 AM – The Parking Spot Fly, 3950 Conley St, College Park, GA 30337
@@ -36,7 +36,7 @@ Location: Mosca, CO 81146 (San Luis Valley)
 5:45 PM – Sand Dunes Recreation, Hooper CO: Pick up 2 boards + 2 sleds (~$80 total), waiver required, soak in hot springs, dinner at Mile Deep Grille
 9:00 PM – Early bedtime
 Total driving: ~5.5 hours
-
+ 
 Day 2 – Wednesday, July 1 | Great Sand Dunes | Lodging: The Dunes Place (Night 2)
 Location: Great Sand Dunes National Park, Mosca CO
 Sunrise ~5:50 AM. Sand reaches 50–60°C at noon – morning only!
@@ -49,7 +49,7 @@ Before 5:45 PM – Return boards to Sand Dunes Recreation (within 24 hours!)
 7:00 PM – Dinner at home or Calvillo's Mexican Restaurant / San Luis Valley Brewing Company, Alamosa CO (30 min)
 9:00 PM – Optional stargazing (International Dark Sky Park). Moonrise ~10:00 PM. Warm layers!
 Total driving: ~1 hour
-
+ 
 Day 3 – Thursday, July 2 | Lodging: Clocktower Flat, Buena Vista
 Location: 801 Swift Cir, Buena Vista CO 81211
 Departure chores: towels to basket, linens on beds, dishwasher running, lock up
@@ -61,7 +61,7 @@ Departure chores: towels to basket, linens on beds, dishwasher running, lock up
 5:30 PM – Check into Clocktower Flat. Shoes off at entrance! Quiet hours: 10 PM–7 AM.
 7:00 PM – Festive dinner at South Main district, Buena Vista CO (2 min walk) + gelato
 Total driving: ~2 hours
-
+ 
 Day 4 – Friday, July 3 | Lodging: Clocktower Flat (Night 2)
 Location: Buena Vista CO & Mount Princeton area
 CRITICAL: Finish Ptarmigan by noon – afternoon storms!
@@ -70,7 +70,7 @@ CRITICAL: Finish Ptarmigan by noon – afternoon storms!
 2:30 PM – Mount Princeton Hot Springs Resort, 15870 County Road 162, Nathrop CO
 7:00 PM – Relaxed evening in Buena Vista
 Total driving: ~1 hour
-
+ 
 Day 5 – Saturday, July 4 (Independence Day!) | Lodging: Clocktower Flat (Night 3)
 Location: Buena Vista CO – everything on foot!
 5:45 AM – Freedom 5K, Buena Vista CO
@@ -79,7 +79,7 @@ McPhelemy Park, Buena Vista CO – Festival: food vendors, live music, games, be
 Afternoon – Rest, ice cream, SUP/tubing on Arkansas River
 Evening – Fireworks. Pack tonight – checkout 10 AM sharp!
 Total driving: 0
-
+ 
 Day 6 – Sunday, July 5 | Lodging: Tyrolean Lodge, Aspen (#51862161)
 Location: Leadville then Aspen CO
 9:00 AM – Checkout Buena Vista (10 AM SHARP)
@@ -91,7 +91,7 @@ Location: Leadville then Aspen CO
 4:15 PM – Tyrolean Lodge, 200 W Main St, Aspen CO. Arrange 5:15 AM departure. No smoking ($200 fine).
 5:30 PM – Walk Aspen center, early dinner. Lights out 9:30 PM!
 Total driving: ~2.5 hours
-
+ 
 Day 7 – Monday, July 6 | THE BIG DAY | Lodging: Lone Pine Cabins, Grand Lake
 Location: Maroon Bells → Glenwood Springs → Grand Lake CO
 4:40 AM – Wake up, kitchenette breakfast
@@ -107,7 +107,7 @@ Location: Maroon Bells → Glenwood Springs → Grand Lake CO
 6:15 PM – Lone Pine Cabins, 416 Grand Ave, Grand Lake CO
 7:00 PM – Grand Lake boardwalk + dinner
 Total driving: ~5 hours
-
+ 
 Day 8 – Tuesday, July 7 | Lodging: Comfort Suites DEN (#5042762440)
 Location: RMNP → Estes Park → Denver
 CRITICAL: Grand Lake Gate before 9:00 AM = no Timed Entry reservation needed!
@@ -122,14 +122,14 @@ CRITICAL: Grand Lake Gate before 9:00 AM = no Timed Entry reservation needed!
 6:00 PM – Enterprise DEN: refuel + return vehicle by 8 PM!
 8:30 PM – Very early bedtime
 Total driving: ~4 hours
-
+ 
 ## Key Tips
 - Altitude: 2,300–3,700m throughout. Drink water from day 1, watch for headaches.
 - Sun: Much stronger than Georgia. SPF 50, hats, sunglasses daily.
 - Afternoon storms: Finish trails by noon, don't be above tree line with lightning.
 - Cold nights: 7–11°C even in July. Warm layer in daypack always.
 - Key gear: Closed shoes (dunes), water shoes (Zapata/rafting/Medano), swimsuits, quick-drying clothes, headlamps.
-
+ 
 ## Accommodations
 - The Dunes Place, 506 Mill Run Rd, Mosca CO 81146: King bed, bunk bed, single. Host Amanda. No open fires.
 - Clocktower Flat, 801 Swift Cir, Buena Vista CO 81211: 2 Queens + 1 single. Manager Melissa. Shoes off, quiet 10PM-7AM.
@@ -137,7 +137,7 @@ Total driving: ~4 hours
 - Lone Pine Cabins, 416 Grand Ave, Grand Lake CO 80447: Queen + 2 sofa beds.
 - Comfort Suites DEN, 5940 Tower Road, Denver CO 80249: 2 Queens + sofa bed. 3 AM shuttle arranged.
 `;
-
+ 
 // ── i18n strings ──────────────────────────────────────────────────────────────
 const T = {
   he: {
@@ -205,7 +205,7 @@ const T = {
     systemLang: "English",
   },
 };
-
+ 
 const DAYS_META = [
   { num: 1, emoji: "✈️",  location: "Colorado Springs → Mosca" },
   { num: 2, emoji: "🏜️", location: "Great Sand Dunes" },
@@ -216,22 +216,22 @@ const DAYS_META = [
   { num: 7, emoji: "🌄", location: "Maroon Bells ✨" },
   { num: 8, emoji: "🦌", location: "RMNP → Denver" },
 ];
-
+ 
 function buildSystemPrompt(tripDoc, lang) {
   return `You are a knowledgeable trip assistant for the Shuv family's Colorado road trip, June 30 – July 8, 2026.
-
+ 
 Answer ONLY in ${lang}. Be concise and practical.
-
+ 
 CRITICAL FORMATTING RULES:
 - Always include Google Maps links for every location mentioned: [Place Name](https://maps.google.com/?q=URL_ENCODED_ADDRESS)
 - For driving segments include navigation links: [Navigate](https://www.google.com/maps/dir/ORIGIN/DESTINATION)
 - Use real addresses from the trip plan when available
 - Format with clear sections, emojis, and bullet points for easy mobile reading
-
+ 
 TRIP PLAN:
 ${tripDoc}`;
 }
-
+ 
 function renderMessageContent(content) {
   const linkRegex = /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g;
   const segments = [];
@@ -251,9 +251,123 @@ function renderMessageContent(content) {
   if (lastIndex < content.length) segments.push(<span key={k++}>{content.slice(lastIndex)}</span>);
   return segments;
 }
-
+ 
+function ApiKeyScreen({ onSave, lang }) {
+  const [key, setKey] = useState("");
+  const [show, setShow] = useState(false);
+  const isHe = lang === "he";
+ 
+  return (
+    <div style={{
+      minHeight: "100vh",
+      background: "linear-gradient(160deg, #0b1d35 0%, #0f2d4a 40%, #0d2218 100%)",
+      display: "flex", alignItems: "center", justifyContent: "center",
+      fontFamily: "'Segoe UI', system-ui, sans-serif",
+      padding: "24px",
+      direction: isHe ? "rtl" : "ltr",
+    }}>
+      <div style={{
+        background: "rgba(255,255,255,0.06)",
+        border: "1px solid rgba(255,255,255,0.12)",
+        borderRadius: "20px",
+        padding: "32px 28px",
+        maxWidth: "380px",
+        width: "100%",
+        color: "#e8f0fe",
+      }}>
+        <div style={{ textAlign: "center", marginBottom: "28px" }}>
+          <div style={{ fontSize: "48px", marginBottom: "12px" }}>🏔️</div>
+          <div style={{ fontSize: "20px", fontWeight: 700, marginBottom: "6px" }}>
+            Colorado 2026
+          </div>
+          <div style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", lineHeight: 1.6 }}>
+            {isHe
+              ? "כדי להשתמש באפליקציה, הזן את מפתח ה-API של Anthropic שלך.\nהמפתח נשמר רק במכשיר זה."
+              : "Enter your Anthropic API key to use the app.\nThe key is stored only on this device."}
+          </div>
+        </div>
+ 
+        <div style={{ marginBottom: "16px" }}>
+          <div style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)", marginBottom: "8px" }}>
+            {isHe ? "Anthropic API Key" : "Anthropic API Key"}
+          </div>
+          <div style={{ position: "relative" }}>
+            <input
+              type={show ? "text" : "password"}
+              value={key}
+              onChange={e => setKey(e.target.value)}
+              placeholder="sk-ant-..."
+              onKeyDown={e => e.key === "Enter" && key.startsWith("sk-") && onSave(key.trim())}
+              style={{
+                width: "100%",
+                background: "rgba(255,255,255,0.07)",
+                border: "1px solid rgba(255,255,255,0.18)",
+                borderRadius: "10px",
+                padding: "11px 44px 11px 14px",
+                color: "#e8f0fe",
+                fontSize: "14px",
+                outline: "none",
+                fontFamily: "monospace",
+                direction: "ltr",
+                boxSizing: "border-box",
+              }}
+            />
+            <button onClick={() => setShow(v => !v)} style={{
+              position: "absolute", top: "50%", right: "12px",
+              transform: "translateY(-50%)",
+              background: "none", border: "none",
+              color: "rgba(255,255,255,0.4)", cursor: "pointer", fontSize: "16px",
+            }}>{show ? "🙈" : "👁️"}</button>
+          </div>
+        </div>
+ 
+        <button
+          onClick={() => key.startsWith("sk-") && onSave(key.trim())}
+          disabled={!key.startsWith("sk-")}
+          style={{
+            width: "100%",
+            background: key.startsWith("sk-")
+              ? "linear-gradient(135deg, #1d6fa4, #1a5c8a)"
+              : "rgba(255,255,255,0.08)",
+            border: "none", borderRadius: "10px",
+            padding: "12px",
+            color: key.startsWith("sk-") ? "white" : "rgba(255,255,255,0.3)",
+            fontSize: "14px", fontWeight: 600,
+            cursor: key.startsWith("sk-") ? "pointer" : "default",
+            transition: "all 0.2s",
+          }}
+        >
+          {isHe ? "התחל →" : "Start →"}
+        </button>
+ 
+        <div style={{
+          marginTop: "20px",
+          padding: "12px",
+          background: "rgba(255,255,255,0.04)",
+          borderRadius: "10px",
+          fontSize: "11px",
+          color: "rgba(255,255,255,0.35)",
+          lineHeight: 1.7,
+          direction: isHe ? "rtl" : "ltr",
+        }}>
+          {isHe ? (
+            <>🔑 המפתח נשמר ב-localStorage של הדפדפן — לא נשלח לשום שרת חוץ מ-Anthropic ישירות.<br/>
+            📋 ניתן לקבל מפתח בכתובת: </>
+          ) : (
+            <>🔑 Key is stored in browser localStorage — only sent directly to Anthropic.<br/>
+            📋 Get a key at: </>
+          )}
+          <a href="https://console.anthropic.com/keys" target="_blank" rel="noopener noreferrer"
+            style={{ color: "#60b4ff" }}>console.anthropic.com/keys</a>
+        </div>
+      </div>
+    </div>
+  );
+}
+ 
 export default function ColoradoAssistant() {
   const [lang, setLang] = useState("he");
+  const [apiKey, setApiKey] = useState(() => localStorage.getItem("anthropic_api_key") || "");
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -264,24 +378,31 @@ export default function ColoradoAssistant() {
   const bottomRef = useRef(null);
   const inputRef = useRef(null);
   const fileInputRef = useRef(null);
-
+ 
   const t = T[lang];
-
+ 
+  function saveApiKey(key) {
+    localStorage.setItem("anthropic_api_key", key);
+    setApiKey(key);
+  }
+ 
+  if (!apiKey) return <ApiKeyScreen onSave={saveApiKey} lang={lang} />;
+ 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
-
+ 
   function toggleDay(num) {
     setSelectedDays(prev =>
       prev.includes(num) ? prev.filter(d => d !== num) : [...prev, num].sort((a, b) => a - b)
     );
   }
-
+ 
   function toggleLang() {
     setLang(l => l === "he" ? "en" : "he");
     setMessages([]);
   }
-
+ 
   async function handleFileUpload(e) {
     const file = e.target.files[0];
     if (!file) return;
@@ -291,13 +412,13 @@ export default function ColoradoAssistant() {
     setShowUpload(false);
     setMessages([]);
   }
-
+ 
   function getDayLabel() {
     if (selectedDays.length === 0) return t.allTrip;
     if (selectedDays.length === 1) return `${t.day} ${selectedDays[0]}`;
     return `${t.days} ${selectedDays.join(", ")}`;
   }
-
+ 
   function buildDaysStr() {
     if (selectedDays.length === 0) return t.allTrip;
     return selectedDays.map(d => {
@@ -305,7 +426,7 @@ export default function ColoradoAssistant() {
       return `Day ${d} (${t.dayLabels[d - 1]}, ${meta?.location})`;
     }).join("; ");
   }
-
+ 
   async function sendMessage(text) {
     const userText = text || input.trim();
     if (!userText || loading) return;
@@ -316,10 +437,9 @@ export default function ColoradoAssistant() {
     setLoading(true);
     try {
       const response = await fetch("https://english-writer.dolevgot.workers.dev", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({...})
-      });
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-api-key": apiKey, "anthropic-version": "2023-06-01" },
+        body: JSON.stringify({
           model: "claude-sonnet-4-6",
           max_tokens: 1000,
           system: buildSystemPrompt(tripDoc, t.systemLang),
@@ -327,26 +447,30 @@ export default function ColoradoAssistant() {
         }),
       });
       const data = await response.json();
+      if (data.error) throw new Error(data.error.message);
       const assistantText = data.content?.map(b => b.text || "").join("") || t.connError;
       setMessages(prev => [...prev, { role: "assistant", content: assistantText }]);
-    } catch {
-      setMessages(prev => [...prev, { role: "assistant", content: t.connError }]);
+    } catch (err) {
+      const msg = err.message?.includes("API key") || err.message?.includes("auth")
+        ? (isHe ? "❌ מפתח API לא תקין. לחץ על 🔑 כדי לשנות." : "❌ Invalid API key. Tap 🔑 to change.")
+        : t.connError;
+      setMessages(prev => [...prev, { role: "assistant", content: msg }]);
     } finally {
       setLoading(false);
     }
   }
-
+ 
   function handleQueryType(qt) {
     sendMessage(qt.prompt(buildDaysStr()));
   }
-
+ 
   function handleKey(e) {
     if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); }
   }
-
+ 
   const isEmpty = messages.length === 0;
   const isHe = lang === "he";
-
+ 
   return (
     <div style={{
       fontFamily: "'Segoe UI', system-ui, sans-serif",
@@ -372,7 +496,21 @@ export default function ColoradoAssistant() {
             <div style={{ fontWeight: 700, fontSize: "14px" }}>{t.title}</div>
             <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.4)", marginTop: "1px" }}>{t.subtitle}</div>
           </div>
-
+ 
+          {/* API key reset */}
+          <button onClick={() => { localStorage.removeItem("anthropic_api_key"); setApiKey(""); setMessages([]); }}
+            title={isHe ? "החלף מפתח API" : "Change API key"}
+            style={{
+              background: "rgba(255,255,255,0.06)",
+              border: "1px solid rgba(255,255,255,0.13)",
+              borderRadius: "8px",
+              padding: "4px 8px",
+              color: "rgba(255,255,255,0.45)",
+              fontSize: "14px",
+              cursor: "pointer",
+              flexShrink: 0,
+            }}>🔑</button>
+ 
           {/* Lang toggle */}
           <button onClick={toggleLang} style={{
             background: "rgba(255,255,255,0.08)",
@@ -395,7 +533,7 @@ export default function ColoradoAssistant() {
           >
             {isHe ? "🇺🇸 EN" : "🇮🇱 עב"}
           </button>
-
+ 
           {/* Upload toggle */}
           <button onClick={() => setShowUpload(v => !v)} style={{
             background: showUpload ? "rgba(100,180,255,0.18)" : "rgba(255,255,255,0.07)",
@@ -410,7 +548,7 @@ export default function ColoradoAssistant() {
             📂 {showUpload ? t.close : t.updateFile}
           </button>
         </div>
-
+ 
         {/* Upload panel */}
         {showUpload && (
           <div style={{
@@ -433,7 +571,7 @@ export default function ColoradoAssistant() {
             <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.22)", marginTop: "5px", textAlign: "center" }}>{t.sessionOnly}</div>
           </div>
         )}
-
+ 
         {/* Day selector */}
         <div style={{ marginTop: "10px" }}>
           <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.45)", marginBottom: "6px" }}>{t.selectDays}</div>
@@ -462,7 +600,7 @@ export default function ColoradoAssistant() {
             }}>{t.clearSelection}</button>
           )}
         </div>
-
+ 
         {/* Query buttons */}
         <div style={{ marginTop: "8px" }}>
           <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.45)", marginBottom: "6px" }}>
@@ -485,7 +623,7 @@ export default function ColoradoAssistant() {
           </div>
         </div>
       </div>
-
+ 
       {/* ── Messages ── */}
       <div style={{
         flex: 1, overflowY: "auto", padding: "16px",
@@ -533,7 +671,7 @@ export default function ColoradoAssistant() {
         )}
         <div ref={bottomRef} />
       </div>
-
+ 
       {/* ── Input ── */}
       <div style={{
         padding: "10px 14px",
@@ -580,7 +718,7 @@ export default function ColoradoAssistant() {
           >↑</button>
         </div>
       </div>
-
+ 
       <style>{`
         @keyframes bounce {
           0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
