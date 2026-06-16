@@ -201,15 +201,48 @@ const DAYS_META = [
   { num: 8, emoji: "🦌", location: "RMNP → Denver" },
 ];
 
-function buildSystemPrompt(tripDoc, lang) {
+async function loadPdfJs() {
+  if (window._pdfjsLib) return window._pdfjsLib;
+  await new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+  const lib = window["pdfjs-dist/build/pdf"];
+  lib.GlobalWorkerOptions.workerSrc =
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+  window._pdfjsLib = lib;
+  return lib;
+}
+
+async function extractPdfText(file) {
+  const pdfjsLib = await loadPdfJs();
+  const arrayBuffer = await file.arrayBuffer();
+  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+  const pages = [];
+  for (let i = 1; i <= pdf.numPages; i++) {
+    const page = await pdf.getPage(i);
+    const textContent = await page.getTextContent();
+    pages.push(textContent.items.map(item => item.str).join(" "));
+  }
+  return pages.join("\n");
+}
+
+function buildSystemPrompt(docs, lang) {
+  const combined = docs
+    .map(d => `### ${d.name}\n${d.content}`)
+    .join("\n\n---\n\n");
   return `You are a knowledgeable trip assistant for the Shuv family's Colorado road trip, June 30 – July 8, 2026.
 Answer ONLY in ${lang}. Be concise and practical.
 Always include Google Maps links for locations: [Place Name](https://maps.google.com/?q=URL_ENCODED_ADDRESS)
 For driving: [Navigate](https://www.google.com/maps/dir/ORIGIN/DESTINATION)
 Format with emojis and bullet points for easy mobile reading.
+When information spans multiple documents, synthesize across all of them.
 
-TRIP PLAN:
-${tripDoc}`;
+DOCUMENTS:
+${combined}`;
 }
 
 function renderMessageContent(content) {
@@ -236,8 +269,10 @@ export default function ColoradoAssistant() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [selectedDays, setSelectedDays] = useState([]);
-  const [tripDoc, setTripDoc] = useState(DEFAULT_TRIP_DOC);
-  const [docFileName, setDocFileName] = useState(null);
+  const [tripDocs, setTripDocs] = useState([
+    { name: "תוכנית הטיול הסופית", content: DEFAULT_TRIP_DOC },
+  ]);
+  const [uploading, setUploading] = useState(false);
   const [showUpload, setShowUpload] = useState(false);
   const bottomRef = useRef(null);
   const inputRef = useRef(null);
@@ -252,11 +287,29 @@ export default function ColoradoAssistant() {
   }
 
   async function handleFileUpload(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-    setDocFileName(file.name);
-    setTripDoc(await file.text());
-    setShowUpload(false);
+    const files = Array.from(e.target.files);
+    if (!files.length) return;
+    setUploading(true);
+    try {
+      for (const file of files) {
+        let content;
+        if (file.type === "application/pdf" || file.name.endsWith(".pdf")) {
+          content = await extractPdfText(file);
+        } else {
+          content = await file.text();
+        }
+        setTripDocs(prev => [...prev, { name: file.name, content }]);
+      }
+    } catch(err) {
+      alert("שגיאה בקריאת הקובץ: " + err.message);
+    } finally {
+      setUploading(false);
+      e.target.value = "";
+    }
+  }
+
+  function removeDoc(i) {
+    setTripDocs(prev => prev.filter((_, j) => j !== i));
     setMessages([]);
   }
 
@@ -289,7 +342,7 @@ export default function ColoradoAssistant() {
         body: JSON.stringify({
           model: "claude-sonnet-4-6",
           max_tokens: 1000,
-          system: buildSystemPrompt(tripDoc, t.systemLang),
+          system: buildSystemPrompt(tripDocs, t.systemLang),
           messages: newMessages,
         }),
       });
@@ -339,15 +392,33 @@ export default function ColoradoAssistant() {
 
         {showUpload && (
           <div style={{ marginTop: "10px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "10px", padding: "12px" }}>
-            <div style={{ fontSize: "12px", color: "rgba(255,255,255,0.6)", marginBottom: "6px" }}>{t.uploadHint}</div>
-            <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", marginBottom: "8px" }}>
-              {t.loaded} <span style={{ color: "rgba(100,210,100,0.8)" }}>{docFileName || t.defaultDoc}</span>
+            <div style={{ fontSize: "12px", color: "rgba(255,255,255,0.6)", marginBottom: "8px" }}>{t.uploadHint}</div>
+
+            {/* Document list */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "5px", marginBottom: "8px" }}>
+              {tripDocs.map((doc, i) => (
+                <div key={i} style={{
+                  display: "flex", alignItems: "center", gap: "6px",
+                  background: "rgba(255,255,255,0.06)", borderRadius: "7px", padding: "5px 8px",
+                }}>
+                  <span style={{ fontSize: "13px" }}>{doc.name.endsWith(".pdf") ? "📕" : "📄"}</span>
+                  <span style={{ flex: 1, fontSize: "11px", color: "rgba(255,255,255,0.7)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{doc.name}</span>
+                  {i > 0 && (
+                    <button onClick={() => removeDoc(i)} style={{
+                      background: "none", border: "none", color: "rgba(255,100,100,0.7)",
+                      fontSize: "13px", cursor: "pointer", padding: "0 2px", flexShrink: 0,
+                    }}>✕</button>
+                  )}
+                </div>
+              ))}
             </div>
-            <input ref={fileInputRef} type="file" accept=".txt,.md" onChange={handleFileUpload} style={{ display: "none" }} />
-            <button onClick={() => fileInputRef.current?.click()} style={{
-              background: "linear-gradient(135deg, #1d6fa4, #1a5c8a)", border: "none",
-              borderRadius: "8px", padding: "8px 16px", color: "white", fontSize: "12px", cursor: "pointer", width: "100%",
-            }}>{t.chooseFile}</button>
+
+            <input ref={fileInputRef} type="file" accept=".txt,.md,.pdf" multiple onChange={handleFileUpload} style={{ display: "none" }} />
+            <button onClick={() => fileInputRef.current?.click()} disabled={uploading} style={{
+              background: uploading ? "rgba(255,255,255,0.1)" : "linear-gradient(135deg, #1d6fa4, #1a5c8a)",
+              border: "none", borderRadius: "8px", padding: "8px 16px",
+              color: "white", fontSize: "12px", cursor: uploading ? "default" : "pointer", width: "100%",
+            }}>{uploading ? "⏳ מעבד..." : t.chooseFile}</button>
             <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.22)", marginTop: "5px", textAlign: "center" }}>{t.sessionOnly}</div>
           </div>
         )}
