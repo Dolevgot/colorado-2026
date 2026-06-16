@@ -438,7 +438,7 @@ export default function ColoradoAssistant() {
     try {
       const response = await fetch("https://english-writer.dolevgot.workers.dev", {
         method: "POST",
-        headers: { "Content-Type": "application/json", "x-api-key": apiKey, "anthropic-version": "2023-06-01" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           model: "claude-sonnet-4-6",
           max_tokens: 1000,
