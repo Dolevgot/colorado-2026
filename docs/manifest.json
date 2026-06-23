@@ -4,5 +4,9 @@
       "name": "תוכנית הטיול הסופית",
       "file": "trip-plan.txt"
     }
+    {
+      "name": "Day By Day",
+      "file": "DayByDay.txt"
+    }
   ]
 }
