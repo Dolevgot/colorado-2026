@@ -347,12 +347,10 @@ export default function ColoradoAssistant() {
                 }}>
                   <span style={{ fontSize: "13px" }}>{doc.name.endsWith(".pdf") ? "📕" : "📄"}</span>
                   <span style={{ flex: 1, fontSize: "11px", color: "rgba(255,255,255,0.7)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{doc.name}</span>
-                  {i > 0 && (
-                    <button onClick={() => removeDoc(i)} style={{
-                      background: "none", border: "none", color: "rgba(255,100,100,0.7)",
-                      fontSize: "13px", cursor: "pointer", padding: "0 2px", flexShrink: 0,
-                    }}>✕</button>
-                  )}
+                  <button onClick={() => removeDoc(i)} style={{
+                    background: "none", border: "none", color: "rgba(255,100,100,0.7)",
+                    fontSize: "13px", cursor: "pointer", padding: "0 2px", flexShrink: 0,
+                  }}>✕</button>
                 </div>
               ))}
             </div>
