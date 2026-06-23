@@ -4,5 +4,9 @@
       "name": "תוכנית הטיול הסופית",
       "file": "trip-plan.txt"
     }
+       {
+      "name": "תוכנית הטיול היומית",
+      "file": "Colorado 2026 - Day by Day.txt"
+    }
   ]
 }
