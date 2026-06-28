@@ -114,7 +114,7 @@ function buildSystemPrompt(docs, lang) {
   const combined = docs
     .map(d => `### ${d.name}\n${d.content}`)
     .join("\n\n---\n\n");
-  return `You are a knowledgeable trip assistant for the Shuv family's Colorado road trip, June 30 – July 8, 2026.
+  return `You are a knowledgeable trip assistant for the Gotlib family's Colorado road trip, June 30 – July 8, 2026.
 Answer ONLY in ${lang}. Be concise and practical.
 Always include Google Maps links for locations: [Place Name](https://maps.google.com/?q=URL_ENCODED_ADDRESS)
 For driving: [Navigate](https://www.google.com/maps/dir/ORIGIN/DESTINATION)
